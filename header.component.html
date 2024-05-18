@@ -1,0 +1,53 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">RecipeIt</a>
+  <button 
+  class="navbar-toggler" 
+  type="button" 
+  data-toggle="collapse" 
+  data-target="#navbarSupportedContent" 
+  aria-controls="navbarSupportedContent" 
+  aria-expanded="false" 
+  aria-label="Toggle navigation"
+  (click)="collapsed = !collapsed">
+    <span class="navbar-toggler-icon" *ngFor="let iconBar of [1]"></span>
+  </button>
+
+  <div 
+  class="collapse navbar-collapse" 
+  id="navbarSupportedContent"
+  [class.collapse]="collapsed" 
+  (window:resize)="collapsed = true">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="#" (click)="onSelect('recipe')">Home<span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#"(click)="onSelect('shopping-list')">Shopping List</a>
+      </li>
+      <li class="nav-item dropdown" appDropdown>
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Categorii
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="#" (click)="onSelect('aperitive')">Aperitive</a>
+          <a class="dropdown-item" href="#" (click)="onSelect('conserve')">Conserve</a>
+          <a class="dropdown-item" href="#" (click)="onSelect('ciorbe') ">Ciorbe</a>
+          <a class="dropdown-item" href="#" (click)="onSelect('mancaruri') ">Mancaruri</a>
+          <a class="dropdown-item" href="#" (click)="onSelect('paine') ">Paine</a>
+          <a class="dropdown-item" href="#" (click)="onSelect('salate') ">Salate</a>
+          <a class="dropdown-item" href="#" (click)="onSelect('dulciuri') ">Dulciuri</a>
+          <a class="dropdown-item" href="#" (click)="onSelect('torturi') ">Torturi</a>
+          <a class="dropdown-item" href="#" (click)="onSelect('diverse') ">Diverse</a>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link disabled" href="#">Contact</a>
+      </li>
+    </ul>
+    <form class="form-inline my-2 my-lg-0" (submit)="onSearch()">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" [(ngModel)]="searchTerm" name="search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+
+  </div>
+</nav>

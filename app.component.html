@@ -1,0 +1,14 @@
+<app-header (featureSelected)="onNavigate($event)" (search)="handleSearch($event)"></app-header>
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <app-recipes *ngIf="loadedFeature === 'recipe'"></app-recipes>
+      <app-shoppinglist *ngIf="loadedFeature === 'shopping-list'"></app-shoppinglist>
+    </div>
+  </div>
+  <div class="row" *ngIf="loadedFeature === 'recipe' && filteredRecipes.length > 0">
+    <div class="col">
+      <app-rezultate-cautare [rezultate]="filteredRecipes" [searchTerm]="searchTerm"></app-rezultate-cautare>
+    </div>
+  </div>
+</div>
